@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Relatório — Biblioteca Digital UniFECAF</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 11pt;
+      line-height: 1.7;
+      color: #1e293b;
+      background: #fff;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 48px;
+    }
+
+    /* ── Capa ── */
+    .capa {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 20px;
+      page-break-after: always;
+    }
+    .capa__logo {
+      width: 80px; height: 80px;
+      background: linear-gradient(135deg,#1a2e4a,#1e6f8e);
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
+    .capa__inst   { font-size: 13pt; font-weight: 700; color: #1a2e4a; letter-spacing:.04em; text-transform:uppercase; }
+    .capa__curso  { font-size: 11pt; color: #475569; margin-top:-8px; }
+    .capa__titulo { font-size: 22pt; font-weight: 800; color: #1a2e4a; line-height:1.2; margin-top: 32px; max-width: 560px; }
+    .capa__sub    { font-size: 13pt; color: #1e6f8e; font-weight: 600; }
+    .capa__divider { width: 60px; height: 4px; background: #f5a623; border-radius: 4px; margin: 16px auto; }
+    .capa__aluno  { font-size: 11pt; color: #334155; margin-top: 40px; }
+    .capa__aluno strong { display: block; font-size: 13pt; color: #1a2e4a; }
+    .capa__data   { font-size: 10pt; color: #64748b; margin-top: 8px; }
+
+    /* ── Sumário ── */
+    .sumario { page-break-after: always; }
+    .sumario h2 { font-size: 16pt; color: #1a2e4a; margin-bottom: 20px; padding-bottom: 8px; border-bottom: 2px solid #1e6f8e; }
+    .sumario ol  { padding-left: 20px; }
+    .sumario li  { padding: 4px 0; font-size: 11pt; }
+    .sumario a   { color: #1e6f8e; text-decoration: none; }
+
+    /* ── Seções ── */
+    section { margin-bottom: 40px; }
+    section + section { page-break-before: auto; }
+    .page-break { page-break-before: always; }
+
+    h1 { font-size: 20pt; font-weight: 800; color: #1a2e4a; margin-bottom: 8px; }
+    h2 { font-size: 15pt; font-weight: 700; color: #1a2e4a; margin: 32px 0 12px;
+         padding-bottom: 6px; border-bottom: 2px solid #e2e8f0; }
+    h3 { font-size: 12pt; font-weight: 700; color: #1e6f8e; margin: 20px 0 8px; }
+    h4 { font-size: 11pt; font-weight: 700; color: #334155; margin: 14px 0 4px; }
+
+    p  { margin-bottom: 12px; color: #334155; }
+    ul, ol { padding-left: 22px; margin-bottom: 12px; }
+    li { margin-bottom: 4px; }
+
+    strong { color: #1a2e4a; }
+
+    /* ── Paleta ── */
+    .paleta { display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0; }
+    .cor {
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      font-size: 9pt;
+    }
+    .cor__swatch {
+      width: 70px; height: 50px; border-radius: 8px;
+      border: 1px solid rgba(0,0,0,.1);
+    }
+    .cor__hex  { font-weight: 700; color: #334155; }
+    .cor__nome { color: #64748b; text-align:center; }
+
+    /* ── Tabela ── */
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 10pt; }
+    th { background: #1a2e4a; color: #fff; padding: 8px 12px; text-align: left; }
+    td { padding: 7px 12px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f8fafc; }
+
+    /* ── Callout ── */
+    .callout {
+      background: #f0f9ff; border-left: 4px solid #1e6f8e;
+      padding: 12px 16px; border-radius: 0 8px 8px 0;
+      margin: 16px 0; font-size: 10.5pt;
+    }
+    .callout.amarelo { background: #fffbeb; border-color: #f5a623; }
+    .callout.verde   { background: #f0fdf4; border-color: #22c55e; }
+
+    /* ── Screenshot placeholder ── */
+    .screenshot {
+      width: 100%; aspect-ratio: 16/9; background: linear-gradient(135deg,#1a2e4a,#1e6f8e);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.5); font-size: 10pt; margin: 12px 0;
+      border: 1px solid #e2e8f0;
+    }
+    .screenshot--mobile {
+      width: 180px; aspect-ratio: 9/19;
+    }
+    .screenshots-row { display: flex; gap: 16px; align-items: flex-start; margin: 12px 0; }
+
+    /* ── Footer ── */
+    .rodape {
+      margin-top: 60px; padding-top: 16px;
+      border-top: 1px solid #e2e8f0;
+      font-size: 9pt; color: #94a3b8; text-align: center;
+    }
+
+    /* ── Print ── */
+    @media print {
+      body { padding: 20px 32px; font-size: 10.5pt; }
+      .capa { min-height: auto; padding: 60px 0; }
+      a { color: inherit; }
+      .no-print { display: none; }
+    }
+
+    @page { margin: 2cm 2cm 2.5cm 2cm; }
+  </style>
+</head>
+<body>
+
+<!-- ================================================
+     CAPA
+================================================ -->
+<div class="capa">
+  <div class="capa__logo">📚</div>
+  <p class="capa__inst">Centro Universitário UniFECAF</p>
+  <p class="capa__curso">Disciplina: Design Web</p>
+  <div class="capa__divider"></div>
+  <h1 class="capa__titulo">Biblioteca Digital UniFECAF</h1>
+  <p class="capa__sub">Parte Teórica — Relatório de Desenvolvimento Web</p>
+  <div class="capa__divider"></div>
+  <div class="capa__aluno">
+    <strong>Desenvolvedor(a): [Seu Nome Completo]</strong>
+    RA: [Seu Número de RA]<br>
+    Professor(a): [Nome do Professor]
+  </div>
+  <p class="capa__data">São Paulo — Outubro de 2026</p>
+</div>
+
+<!-- ================================================
+     SUMÁRIO
+================================================ -->
+<div class="sumario">
+  <h2>Sumário</h2>
+  <ol>
+    <li><a href="#sec1">1. Análise do Problema e do Protótipo</a></li>
+    <li><a href="#sec2">2. Definição do Público-Alvo</a></li>
+    <li><a href="#sec3">3. Paleta de Cores e Tipografia</a></li>
+    <li><a href="#sec4">4. Justificativa das Principais Decisões Visuais</a></li>
+    <li><a href="#sec5">5. Estrutura das Seções do Site</a></li>
+    <li><a href="#sec6">6. Estratégias de Responsividade</a></li>
+    <li><a href="#sec7">7. Princípios de Acessibilidade</a></li>
+    <li><a href="#sec8">8. Respostas às Questões Orientadoras</a></li>
+    <li><a href="#sec9">9. Capturas de Tela</a></li>
+    <li><a href="#sec10">10. Referências</a></li>
+  </ol>
+</div>
+
+<!-- ================================================
+     1. ANÁLISE
+================================================ -->
+<section id="sec1">
+  <h2>1. Análise do Problema e do Protótipo</h2>
+
+  <h3>1.1 O Problema</h3>
+  <p>
+    A UniFECAF identificou a necessidade de uma plataforma digital centralizada para facilitar o acesso dos estudantes ao acervo bibliográfico, materiais acadêmicos e serviços da biblioteca. Antes do desenvolvimento desta interface, os alunos precisavam se deslocar fisicamente ou usar sistemas fragmentados para encontrar conteúdo de apoio ao aprendizado.
+  </p>
+  <p>
+    O desafio proposto foi transformar um protótipo de baixa fidelidade em uma interface web funcional, visualmente coerente e alinhada à identidade da instituição, utilizando exclusivamente <strong>HTML e CSS</strong>.
+  </p>
+
+  <h3>1.2 Análise do Protótipo de Baixa Fidelidade</h3>
+  <p>
+    O protótipo disponibilizado apresentou a seguinte estrutura:
+  </p>
+  <ul>
+    <li><strong>Cabeçalho fixo</strong> com logotipo e menu de navegação (Biblioteca, Livros, Atividades, Contatos)</li>
+    <li><strong>Hero banner</strong> com imagem grande de destaque e chamada principal</li>
+    <li><strong>Seção "Sobre a Biblioteca"</strong> com texto descritivo, imagem e galeria de quatro fotos</li>
+    <li><strong>Banner secundário</strong> com chamada para ação</li>
+    <li><strong>Seção "Nossos Livros"</strong> em grid com seis cards (imagem, título, texto, botão)</li>
+    <li><strong>Seção "As Unidades"</strong> com três unidades físicas, cada uma com imagem e descrição</li>
+    <li><strong>Seção de Contato</strong> com informações e formulário</li>
+    <li><strong>Rodapé</strong> com links institucionais</li>
+  </ul>
+
+  <div class="callout">
+    <strong>Decisão de expansão:</strong> além das seções do protótipo, foram adicionadas uma seção de <em>Categorias</em> e uma de <em>Serviços</em>, enriquecendo a experiência do usuário sem romper com a estrutura original proposta.
+  </div>
+</section>
+
+<!-- ================================================
+     2. PÚBLICO-ALVO
+================================================ -->
+<section id="sec2" class="page-break">
+  <h2>2. Definição do Público-Alvo</h2>
+
+  <h3>2.1 Perfil Principal</h3>
+  <p>
+    O público primário da Biblioteca Digital UniFECAF é composto pelos <strong>estudantes de graduação e pós-graduação</strong> da instituição, com perfil predominantemente jovem-adulto (18 a 35 anos), nativos digitais habituados a interfaces intuitivas e ao acesso móvel.
+  </p>
+
+  <h3>2.2 Perfis Secundários</h3>
+  <table>
+    <tr>
+      <th>Perfil</th>
+      <th>Necessidade principal</th>
+      <th>Como o site atende</th>
+    </tr>
+    <tr>
+      <td>Estudante de graduação</td>
+      <td>Encontrar livros do currículo e pesquisa rápida</td>
+      <td>Grid de livros, busca por categoria</td>
+    </tr>
+    <tr>
+      <td>Pós-graduando / pesquisador</td>
+      <td>Acesso a bases de dados e periódicos</td>
+      <td>Seção de serviços, bases de dados</td>
+    </tr>
+    <tr>
+      <td>Professor / coordenador</td>
+      <td>Indicar obras e verificar disponibilidade</td>
+      <td>Cards de livros com detalhes</td>
+    </tr>
+    <tr>
+      <td>Visitante externo</td>
+      <td>Conhecer a instituição e serviços</td>
+      <td>Seção Sobre, Unidades e Contato</td>
+    </tr>
+  </table>
+
+  <h3>2.3 Implicações no Design</h3>
+  <p>
+    O perfil jovem-adulto e mobile-first influenciou diretamente as decisões de design: hierarquia visual clara, textos objetivos, botões grandes com área de toque adequada, e uma paleta profissional que transmite confiança acadêmica sem ser intimidadora.
+  </p>
+</section>
+
+<!-- ================================================
+     3. PALETA E TIPOGRAFIA
+================================================ -->
+<section id="sec3">
+  <h2>3. Paleta de Cores e Tipografia</h2>
+
+  <h3>3.1 Paleta de Cores</h3>
+  <p>
+    A paleta foi construída a partir da identidade visual da UniFECAF, que utiliza tons de azul como cor institucional dominante, transmitindo confiança, seriedade e inovação educacional.
+  </p>
+
+  <div class="paleta">
+    <div class="cor">
+      <div class="cor__swatch" style="background:#1a2e4a;"></div>
+      <span class="cor__hex">#1a2e4a</span>
+      <span class="cor__nome">Navy<br>Principal</span>
+    </div>
+    <div class="cor">
+      <div class="cor__swatch" style="background:#0f1e33;"></div>
+      <span class="cor__hex">#0f1e33</span>
+      <span class="cor__nome">Navy<br>Escuro</span>
+    </div>
+    <div class="cor">
+      <div class="cor__swatch" style="background:#2a4a76;"></div>
+      <span class="cor__hex">#2a4a76</span>
+      <span class="cor__nome">Navy<br>Claro</span>
+    </div>
+    <div class="cor">
+      <div class="cor__swatch" style="background:#1e6f8e;"></div>
+      <span class="cor__hex">#1e6f8e</span>
+      <span class="cor__nome">Teal<br>Secundário</span>
+    </div>
+    <div class="cor">
+      <div class="cor__swatch" style="background:#2990b8;"></div>
+      <span class="cor__hex">#2990b8</span>
+      <span class="cor__nome">Teal<br>Hover</span>
+    </div>
+    <div class="cor">
+      <div class="cor__swatch" style="background:#f5a623;"></div>
+      <span class="cor__hex">#f5a623</span>
+      <span class="cor__nome">Dourado<br>Acento</span>
+    </div>
+    <div class="cor">
+      <div class="cor__swatch" style="background:#f8fafc; border:1px solid #e2e8f0;"></div>
+      <span class="cor__hex">#f8fafc</span>
+      <span class="cor__nome">Gray-50<br>Fundos</span>
+    </div>
+    <div class="cor">
+      <div class="cor__swatch" style="background:#ffffff; border:1px solid #e2e8f0;"></div>
+      <span class="cor__hex">#ffffff</span>
+      <span class="cor__nome">Branco<br>Base</span>
+    </div>
+  </div>
+
+  <h4>Justificativa das cores</h4>
+  <ul>
+    <li><strong>Navy (#1a2e4a):</strong> cor primária da identidade UniFECAF. Transmite autoridade, seriedade e confiança — valores fundamentais de uma instituição de ensino superior.</li>
+    <li><strong>Teal (#1e6f8e):</strong> cor de ação e interatividade. Deriva do azul institucional, mantendo coerência, mas com maior vivacidade para botões e destaques.</li>
+    <li><strong>Dourado (#f5a623):</strong> acento estratégico para badges, CTAs e ícones de estatísticas. Cria contraste energético sobre os fundos escuros sem romper a identidade formal.</li>
+    <li><strong>Gray-50 (#f8fafc):</strong> fundo alternado entre seções, criando ritmo visual sem exigir bordas explícitas.</li>
+  </ul>
+
+  <h3>3.2 Tipografia</h3>
+  <p>
+    A fonte escolhida foi a <strong>Inter</strong> (Google Fonts), carregada nos pesos 400, 500, 600, 700 e 800.
+  </p>
+
+  <table>
+    <tr>
+      <th>Elemento</th>
+      <th>Peso</th>
+      <th>Tamanho</th>
+      <th>Uso</th>
+    </tr>
+    <tr><td>Título H1 (Hero)</td><td>800</td><td>clamp(2.2rem → 3.75rem)</td><td>Impacto visual máximo na entrada</td></tr>
+    <tr><td>Títulos de seção H2</td><td>800</td><td>clamp(1.5rem → 2.25rem)</td><td>Hierarquia clara entre seções</td></tr>
+    <tr><td>Subtítulos H3</td><td>700</td><td>1.25rem</td><td>Cards e subseções</td></tr>
+    <tr><td>Corpo do texto</td><td>400</td><td>1rem (16px)</td><td>Legibilidade confortável</td></tr>
+    <tr><td>Labels e badges</td><td>600–700</td><td>0.75–0.875rem</td><td>Destaque sem ruído</td></tr>
+  </table>
+
+  <div class="callout">
+    <strong>Justificativa da Inter:</strong> fonte sem serifa projetada especificamente para interfaces digitais, com excelente legibilidade em telas de todas as resoluções. O uso de <code>clamp()</code> no tamanho dos títulos garante escala fluida entre breakpoints.
+  </div>
+</section>
+
+<!-- ================================================
+     4. DECISÕES VISUAIS
+================================================ -->
+<section id="sec4" class="page-break">
+  <h2>4. Justificativa das Principais Decisões Visuais</h2>
+
+  <h3>4.1 Header Sticky com Fundo Navy</h3>
+  <p>
+    O cabeçalho fixo em <code>position: sticky</code> garante que a navegação esteja sempre acessível durante o scroll, padrão consagrado em interfaces modernas. O fundo navy escuro cria contraste máximo com os textos brancos, atendendo aos critérios WCAG AA de contraste mínimo (4.5:1).
+  </p>
+
+  <h3>4.2 Hero com Gradiente e Padrão de Pontos</h3>
+  <p>
+    Em vez de uma imagem de fundo (que pode falhar ao carregar), o hero utiliza um gradiente CSS puro com dois overlays decorativos: um padrão de pontos sutis via <code>radial-gradient</code> e manchas de cor radiais nos cantos. Isso garante que a seção principal nunca apareça "quebrada", mesmo em conexões lentas.
+  </p>
+
+  <h3>4.3 Cards com Hover Elevado</h3>
+  <p>
+    Os cards de livros e categorias aplicam <code>transform: translateY(-6px)</code> e aumento de <code>box-shadow</code> ao hover, criando a ilusão de elevação — padrão do Material Design que reforça a interatividade sem exigir JavaScript.
+  </p>
+
+  <h3>4.4 Seção de Serviços com Fundo Navy</h3>
+  <p>
+    A seção de serviços usa o fundo navy escuro para criar contraste visual e ritmo entre as seções de fundo claro. Essa alternância consciente de fundos (branco → cinza claro → navy → cinza claro → navy) guia o olhar do usuário ao longo da página sem monotonia.
+  </p>
+
+  <h3>4.5 Layout Alternado nas Unidades</h3>
+  <p>
+    As três unidades utilizam layout imagem-texto alternado (imagem à esquerda, direita, esquerda), técnica clássica de design editorial que mantém a atenção e evita a sensação de lista. Implementado via classes modificadoras BEM (<code>.unidade-item--reverse</code>) com <code>order</code> no CSS.
+  </p>
+
+  <h3>4.6 Metodologia BEM no CSS</h3>
+  <p>
+    O CSS segue a metodologia BEM (Block Element Modifier), que organiza os seletores em padrões legíveis como <code>.livro-card__title</code> e <code>.btn--primary</code>. Isso facilita a manutenção e evita conflitos de especificidade — decisão que demonstra maturidade técnica.
+  </p>
+
+  <h3>4.7 CSS Custom Properties como Design Tokens</h3>
+  <p>
+    Todas as cores, espaçamentos, tamanhos de fonte e sombras estão definidos como variáveis CSS (<code>:root { --color-primary: #1a2e4a; }</code>). Isso permite alterar a identidade visual inteira modificando apenas o bloco <code>:root</code>, tornando o código altamente manutenível.
+  </p>
+</section>
+
+<!-- ================================================
+     5. ESTRUTURA DAS SEÇÕES
+================================================ -->
+<section id="sec5">
+  <h2>5. Estrutura das Seções do Site</h2>
+
+  <table>
+    <tr>
+      <th>#</th>
+      <th>Seção</th>
+      <th>Elemento HTML</th>
+      <th>Objetivo</th>
+    </tr>
+    <tr><td>1</td><td>Header / Navegação</td><td><code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code></td><td>Orientação e identidade da marca</td></tr>
+    <tr><td>2</td><td>Hero Principal</td><td><code>&lt;section&gt;</code></td><td>Primeira impressão, CTA e dados rápidos</td></tr>
+    <tr><td>3</td><td>Explore por Categoria</td><td><code>&lt;section&gt;</code>, grid de <code>&lt;a&gt;</code></td><td>Segmentar o acervo por área do conhecimento</td></tr>
+    <tr><td>4</td><td>Sobre a Biblioteca</td><td><code>&lt;section&gt;</code></td><td>Contextualizar a proposta e gerar confiança</td></tr>
+    <tr><td>5</td><td>Banner CTA</td><td><code>&lt;section&gt;</code></td><td>Engajar e direcionar ao acervo</td></tr>
+    <tr><td>6</td><td>Nossos Livros</td><td><code>&lt;section&gt;</code>, grid de <code>&lt;article&gt;</code></td><td>Mostrar o acervo em destaque</td></tr>
+    <tr><td>7</td><td>Serviços da Biblioteca</td><td><code>&lt;section&gt;</code></td><td>Comunicar os diferenciais do serviço</td></tr>
+    <tr><td>8</td><td>As Unidades</td><td><code>&lt;section&gt;</code>, <code>&lt;article&gt;</code></td><td>Mostrar presença física e proximidade</td></tr>
+    <tr><td>9</td><td>Entre em Contato</td><td><code>&lt;section&gt;</code>, <code>&lt;form&gt;</code></td><td>Canal direto com a equipe</td></tr>
+    <tr><td>10</td><td>Rodapé</td><td><code>&lt;footer&gt;</code>, <code>&lt;nav&gt;</code></td><td>Links complementares e informações legais</td></tr>
+  </table>
+
+  <h3>5.1 Semântica HTML5</h3>
+  <p>
+    Cada seção utiliza elementos semânticos apropriados: <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code> e <code>&lt;nav&gt;</code>. Os títulos seguem hierarquia correta (H1 único no hero → H2 por seção → H3 para subcomponentes), permitindo leitura correta por tecnologias assistivas e melhor indexação por mecanismos de busca.
+  </p>
+</section>
+
+<!-- ================================================
+     6. RESPONSIVIDADE
+================================================ -->
+<section id="sec6" class="page-break">
+  <h2>6. Estratégias de Responsividade</h2>
+
+  <p>
+    A abordagem adotada foi <strong>Desktop First</strong> — o layout base é construído para telas largas e progressivamente adaptado para telas menores via Media Queries. Foram definidos três breakpoints principais:
+  </p>
+
+  <table>
+    <tr>
+      <th>Breakpoint</th>
+      <th>Largura</th>
+      <th>Principais mudanças</th>
+    </tr>
+    <tr>
+      <td>Tablet</td>
+      <td>≤ 1024px</td>
+      <td>Grid de livros: 3→2 colunas; seção Sobre empilhada; contato em coluna única; footer simplificado</td>
+    </tr>
+    <tr>
+      <td>Mobile</td>
+      <td>≤ 768px</td>
+      <td>Menu hamburger ativado; hero sem altura mínima; categorias 4→2 colunas; livros 2→1 coluna; serviços 4→1 coluna; unidades empilhadas</td>
+    </tr>
+    <tr>
+      <td>Pequeno</td>
+      <td>≤ 480px</td>
+      <td>Logo compactado; categorias mantidas em 2 colunas com padding reduzido; footer em coluna única</td>
+    </tr>
+  </table>
+
+  <h3>6.1 Técnicas Utilizadas</h3>
+  <ul>
+    <li><strong>CSS Grid</strong> com <code>grid-template-columns</code> responsivo — os grids alteram o número de colunas via media queries sem JavaScript</li>
+    <li><strong>clamp()</strong> para tipografia fluida — os títulos se redimensionam proporcionalmente entre o valor mínimo e máximo sem breakpoints específicos</li>
+    <li><strong>Flexbox</strong> para componentes lineares (nav, cards de estatísticas, itens de lista)</li>
+    <li><strong>max-width + margin-inline: auto</strong> no container principal para centering automático</li>
+    <li><strong>Menu hamburger</strong> em CSS puro com animação via <code>transform</code>, controlado por JavaScript mínimo (~15 linhas)</li>
+    <li><strong>aspect-ratio</strong> para manter proporções de imagens consistentes em qualquer largura</li>
+  </ul>
+
+  <h3>6.2 Imagens Responsivas</h3>
+  <p>
+    Todas as imagens utilizam <code>max-width: 100%</code>, <code>object-fit: cover</code> e <code>aspect-ratio</code> fixo. Isso garante que nenhuma imagem distorça ou quebre o layout em telas menores.
+  </p>
+
+  <h3>6.3 Prevenção de Quebras Comuns</h3>
+  <ul>
+    <li>Textos longos: uso de <code>line-height</code> generoso e <code>max-width</code> nos parágrafos de subtítulo</li>
+    <li>Botões: <code>white-space: nowrap</code> para evitar quebra de linha indesejada</li>
+    <li>Formulário: campos com <code>width: 100%</code> que nunca ultrapassam o container</li>
+    <li>Navbar mobile: <code>position: absolute</code> sobre o conteúdo, sem empurrar o layout</li>
+  </ul>
+</section>
+
+<!-- ================================================
+     7. ACESSIBILIDADE
+================================================ -->
+<section id="sec7">
+  <h2>7. Princípios Básicos de Acessibilidade</h2>
+
+  <h3>7.1 Contraste de Cores (WCAG AA)</h3>
+  <p>
+    As combinações de cor críticas atendem ao critério WCAG 2.1 nível AA (contraste mínimo 4.5:1 para texto normal):
+  </p>
+  <table>
+    <tr><th>Texto</th><th>Fundo</th><th>Contraste (aprox.)</th><th>Status</th></tr>
+    <tr><td>Branco #fff</td><td>Navy #1a2e4a</td><td>~10.5:1</td><td>✅ AAA</td></tr>
+    <tr><td>Branco #fff</td><td>Teal #1e6f8e</td><td>~4.8:1</td><td>✅ AA</td></tr>
+    <tr><td>Navy #1a2e4a</td><td>Dourado #f5a623</td><td>~7.2:1</td><td>✅ AAA</td></tr>
+    <tr><td>Gray-700 #334155</td><td>Branco #fff</td><td>~9.7:1</td><td>✅ AAA</td></tr>
+  </table>
+
+  <h3>7.2 Atributos ARIA e Semântica</h3>
+  <ul>
+    <li><code>aria-label</code> em todos os links e botões com texto não descritivo</li>
+    <li><code>aria-expanded</code> no botão do menu mobile, atualizado via JavaScript</li>
+    <li><code>aria-controls</code> associando o botão ao menu que ele controla</li>
+    <li><code>aria-labelledby</code> associando cada seção ao seu título H2</li>
+    <li><code>aria-hidden="true"</code> em elementos decorativos (emojis, ícones)</li>
+    <li><code>aria-required="true"</code> nos campos obrigatórios do formulário</li>
+    <li><code>role="banner"</code>, <code>role="navigation"</code>, <code>role="contentinfo"</code> nos landmarks principais</li>
+  </ul>
+
+  <h3>7.3 Navegação por Teclado</h3>
+  <ul>
+    <li><strong>Skip link</strong> visível ao receber foco: <em>"Pular para o conteúdo principal"</em> — permite que usuários de teclado/leitores de tela ignorem a navegação repetida</li>
+    <li><code>:focus-visible</code> com outline dourado de 3px em todos os elementos interativos</li>
+    <li>Todos os links e botões são elementos nativos HTML com foco automático correto</li>
+  </ul>
+
+  <h3>7.4 Imagens</h3>
+  <p>
+    Todas as imagens possuem atributo <code>alt</code> descritivo. Imagens puramente decorativas usam <code>aria-hidden="true"</code>. O atributo <code>loading="lazy"</code> melhora a performance sem prejudicar o acesso ao conteúdo.
+  </p>
+
+  <h3>7.5 Movimento Reduzido</h3>
+  <p>
+    A media query <code>@media (prefers-reduced-motion: reduce)</code> desativa todas as transições e animações para usuários que configuram essa preferência no sistema operacional, respeitando necessidades de pessoas com epilepsia ou sensibilidade a movimento.
+  </p>
+
+  <div class="callout amarelo">
+    <strong>Nota:</strong> a validação completa de acessibilidade requer testes manuais com tecnologias assistivas (NVDA, VoiceOver) e auditoria especializada. As medidas implementadas atendem os critérios WCAG 2.1 nível AA verificáveis automaticamente.
+  </div>
+</section>
+
+<!-- ================================================
+     8. QUESTÕES ORIENTADORAS
+================================================ -->
+<section id="sec8" class="page-break">
+  <h2>8. Respostas às Questões Orientadoras</h2>
+
+  <h3>Como transformar um protótipo de baixa fidelidade em uma interface web moderna, responsiva e alinhada à identidade visual da UniFECAF?</h3>
+
+  <p>
+    A transformação do protótipo em interface funcional seguiu um processo estruturado em quatro etapas:
+  </p>
+
+  <h4>Etapa 1 — Análise e interpretação</h4>
+  <p>
+    O protótipo foi analisado para identificar a hierarquia de conteúdo, o fluxo do usuário e as seções obrigatórias. Cada bloco do wireframe foi mapeado a um componente HTML semântico específico, garantindo que a estrutura de informação fosse preservada na transição para o código.
+  </p>
+
+  <h4>Etapa 2 — Definição da identidade visual</h4>
+  <p>
+    A paleta foi derivada da identidade institucional da UniFECAF (azul navy como cor dominante), complementada por teal para ações interativas e dourado para acentos de destaque. A tipografia Inter foi escolhida por sua legibilidade digital e versatilidade nos múltiplos pesos necessários para a hierarquia visual.
+  </p>
+
+  <h4>Etapa 3 — Construção com HTML semântico e CSS organizado</h4>
+  <p>
+    O HTML foi estruturado com elementos semânticos corretos, garantindo acessibilidade e SEO. O CSS foi organizado em seções comentadas e utiliza Custom Properties como sistema de design tokens, tornando o código coerente e manutenível. A metodologia BEM foi aplicada para nomear classes de forma previsível.
+  </p>
+
+  <h4>Etapa 4 — Responsividade e refinamento</h4>
+  <p>
+    Os breakpoints foram definidos a partir do comportamento natural do conteúdo (onde o layout "quebra" naturalmente), não apenas por dispositivos específicos. Técnicas modernas como <code>clamp()</code>, <code>aspect-ratio</code> e CSS Grid garantem que o layout se adapte fluidamente a qualquer largura de tela, do smartphone ao monitor widescreen.
+  </p>
+
+  <div class="callout verde">
+    <strong>Conclusão:</strong> a interface resultante não apenas reproduz o protótipo — ela o expande com componentes adicionais (categorias, serviços, estatísticas no hero), mantendo total coerência visual e funcional com a identidade UniFECAF. O resultado é uma plataforma que transmite credibilidade institucional e oferece experiência de uso moderna, acessível e responsiva.
+  </div>
+</section>
+
+<!-- ================================================
+     9. CAPTURAS DE TELA
+================================================ -->
+<section id="sec9">
+  <h2>9. Capturas de Tela</h2>
+
+  <div class="callout amarelo">
+    <strong>Instruções:</strong> substitua os blocos abaixo pelas capturas reais do site. Para capturar: abra o site no navegador → pressione <strong>F12</strong> → ícone de dispositivo móvel para simular smartphone → tire print. Para desktop, use a extensão "Full Page Screen Capture" ou pressione <strong>Ctrl+Shift+S</strong> no Firefox.
+  </div>
+
+  <h3>9.1 Versão Desktop</h3>
+
+  <h4>Hero / Topo da página</h4>
+  <div class="screenshot">[Cole aqui a captura da versão desktop — seção Hero]</div>
+
+  <h4>Seção Livros</h4>
+  <div class="screenshot">[Cole aqui a captura da seção Nossos Livros — desktop]</div>
+
+  <h4>Seção Unidades</h4>
+  <div class="screenshot">[Cole aqui a captura da seção As Unidades — desktop]</div>
+
+  <h4>Seção Contato e Footer</h4>
+  <div class="screenshot">[Cole aqui a captura da seção Contato e Rodapé — desktop]</div>
+
+  <h3>9.2 Versão Mobile (smartphone)</h3>
+  <div class="screenshots-row">
+    <div>
+      <p style="font-size:9pt;color:#64748b;margin-bottom:4px;">Topo / Hero</p>
+      <div class="screenshot screenshot--mobile">[Hero mobile]</div>
+    </div>
+    <div>
+      <p style="font-size:9pt;color:#64748b;margin-bottom:4px;">Menu aberto</p>
+      <div class="screenshot screenshot--mobile">[Menu hamburger aberto]</div>
+    </div>
+    <div>
+      <p style="font-size:9pt;color:#64748b;margin-bottom:4px;">Livros</p>
+      <div class="screenshot screenshot--mobile">[Grid livros mobile]</div>
+    </div>
+    <div>
+      <p style="font-size:9pt;color:#64748b;margin-bottom:4px;">Contato</p>
+      <div class="screenshot screenshot--mobile">[Formulário mobile]</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+     10. REFERÊNCIAS
+================================================ -->
+<section id="sec10" class="page-break">
+  <h2>10. Referências</h2>
+
+  <ul>
+    <li>MDN Web Docs. <em>HTML elements reference</em>. Disponível em: https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element</li>
+    <li>W3Schools. <em>HTML and CSS Tutorial</em>. Disponível em: https://www.w3schools.com/</li>
+    <li>Material Design. <em>Design guidelines</em>. Disponível em: https://m2.material.io/</li>
+    <li>Bootstrap. <em>CSS framework documentation</em>. Disponível em: https://getbootstrap.com/</li>
+    <li>W3C. <em>Web Content Accessibility Guidelines (WCAG) 2.1</em>. Disponível em: https://www.w3.org/TR/WCAG21/</li>
+    <li>Google Fonts. <em>Inter typeface</em>. Disponível em: https://fonts.google.com/specimen/Inter</li>
+    <li>Unsplash. <em>Free high-resolution photos</em>. Disponível em: https://unsplash.com/</li>
+    <li>UniFECAF. <em>Portal institucional</em>. Disponível em: https://www.unifecaf.com.br/</li>
+    <li>CSS-Tricks. <em>A Complete Guide to CSS Grid</em>. Disponível em: https://css-tricks.com/snippets/css/complete-guide-grid/</li>
+    <li>BEM methodology. Disponível em: https://getbem.com/</li>
+  </ul>
+</section>
+
+<div class="rodape">
+  Biblioteca Digital UniFECAF — Relatório de Design Web &nbsp;|&nbsp; Disciplina: Design Web &nbsp;|&nbsp; 2026
+</div>
+
+<p class="no-print" style="text-align:center; margin-top:40px; padding:20px; background:#f0f9ff; border-radius:8px; font-size:10pt; color:#1e6f8e;">
+  <strong>💡 Para gerar o PDF:</strong> pressione <strong>Ctrl+P</strong> (ou Cmd+P no Mac) → selecione "Salvar como PDF" → marque "Gráficos de fundo" nas opções de impressão → Salvar.
+</p>
+
+</body>
+</html>

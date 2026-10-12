@@ -1,0 +1,722 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Biblioteca Digital UniFECAF — Acesso a livros, materiais acadêmicos e conteúdos de apoio à aprendizagem." />
+  <title>Biblioteca Digital UniFECAF</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Favicon inline SVG -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Skip link acessibilidade -->
+  <a class="skip-link" href="#main-content">Pular para o conteúdo principal</a>
+
+  <!-- ========== HEADER / NAV ========== -->
+  <header class="header" role="banner">
+    <div class="container header__inner">
+
+      <!-- Logo -->
+      <a href="#inicio" class="header__logo" aria-label="Biblioteca Digital UniFECAF — Página inicial">
+        <div class="logo-mark" aria-hidden="true">
+          <span class="logo-mark__icon">📚</span>
+        </div>
+        <div class="logo-text">
+          <span class="logo-text__main">Biblioteca Digital</span>
+          <span class="logo-text__sub">UniFECAF</span>
+        </div>
+      </a>
+
+      <!-- Mobile hamburger -->
+      <button class="nav-toggle" id="navToggle" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir menu de navegação">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <!-- Navigation -->
+      <nav class="nav" id="mainNav" role="navigation" aria-label="Menu principal">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="#inicio"     class="nav__link">Biblioteca</a></li>
+          <li class="nav__item"><a href="#livros"     class="nav__link">Livros</a></li>
+          <li class="nav__item"><a href="#unidades"   class="nav__link">Unidades</a></li>
+          <li class="nav__item"><a href="#contato"    class="nav__link">Contatos</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="inicio" aria-label="Destaque principal">
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="container hero__content">
+        <p class="hero__eyebrow">Bem-vindo à</p>
+        <h1 class="hero__title">Biblioteca Digital<br><span>UniFECAF</span></h1>
+        <p class="hero__subtitle">
+          Acesse milhares de livros, artigos e materiais acadêmicos de onde você estiver.
+          Sua jornada de conhecimento começa aqui.
+        </p>
+        <div class="hero__actions">
+          <a href="#livros" class="btn btn--primary">Explorar acervo</a>
+          <a href="#sobre"  class="btn btn--outline">Saiba mais</a>
+        </div>
+        <!-- Stats bar -->
+        <div class="hero__stats" aria-label="Números da biblioteca">
+          <div class="hero__stat">
+            <strong>+10.000</strong>
+            <span>Títulos digitais</span>
+          </div>
+          <div class="hero__stat">
+            <strong>+200</strong>
+            <span>Periódicos</span>
+          </div>
+          <div class="hero__stat">
+            <strong>+50</strong>
+            <span>Bases de dados</span>
+          </div>
+          <div class="hero__stat">
+            <strong>24/7</strong>
+            <span>Acesso online</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CATEGORIAS ========== -->
+    <section class="categorias" id="categorias" aria-labelledby="categorias-titulo">
+      <div class="container">
+        <h2 class="section-title" id="categorias-titulo">Explore por Categoria</h2>
+        <p class="section-subtitle">Encontre o material que você precisa por área do conhecimento</p>
+        <div class="categorias__grid">
+          <a href="#livros" class="categoria-card" aria-label="Categoria: Ciências Exatas">
+            <div class="categoria-card__icon" aria-hidden="true">🔢</div>
+            <h3 class="categoria-card__title">Ciências Exatas</h3>
+            <span class="categoria-card__count">1.240 títulos</span>
+          </a>
+          <a href="#livros" class="categoria-card" aria-label="Categoria: Administração">
+            <div class="categoria-card__icon" aria-hidden="true">📊</div>
+            <h3 class="categoria-card__title">Administração</h3>
+            <span class="categoria-card__count">980 títulos</span>
+          </a>
+          <a href="#livros" class="categoria-card" aria-label="Categoria: Tecnologia da Informação">
+            <div class="categoria-card__icon" aria-hidden="true">💻</div>
+            <h3 class="categoria-card__title">Tecnologia</h3>
+            <span class="categoria-card__count">1.560 títulos</span>
+          </a>
+          <a href="#livros" class="categoria-card" aria-label="Categoria: Direito">
+            <div class="categoria-card__icon" aria-hidden="true">⚖️</div>
+            <h3 class="categoria-card__title">Direito</h3>
+            <span class="categoria-card__count">870 títulos</span>
+          </a>
+          <a href="#livros" class="categoria-card" aria-label="Categoria: Saúde">
+            <div class="categoria-card__icon" aria-hidden="true">🩺</div>
+            <h3 class="categoria-card__title">Saúde</h3>
+            <span class="categoria-card__count">1.100 títulos</span>
+          </a>
+          <a href="#livros" class="categoria-card" aria-label="Categoria: Educação">
+            <div class="categoria-card__icon" aria-hidden="true">🎓</div>
+            <h3 class="categoria-card__title">Educação</h3>
+            <span class="categoria-card__count">730 títulos</span>
+          </a>
+          <a href="#livros" class="categoria-card" aria-label="Categoria: Engenharia">
+            <div class="categoria-card__icon" aria-hidden="true">⚙️</div>
+            <h3 class="categoria-card__title">Engenharia</h3>
+            <span class="categoria-card__count">1.020 títulos</span>
+          </a>
+          <a href="#livros" class="categoria-card" aria-label="Categoria: Psicologia">
+            <div class="categoria-card__icon" aria-hidden="true">🧠</div>
+            <h3 class="categoria-card__title">Psicologia</h3>
+            <span class="categoria-card__count">640 títulos</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SOBRE A BIBLIOTECA ========== -->
+    <section class="sobre" id="sobre" aria-labelledby="sobre-titulo">
+      <div class="container sobre__grid">
+        <!-- Text column -->
+        <div class="sobre__text">
+          <span class="eyebrow">Sobre a Nossa Biblioteca</span>
+          <h2 class="section-title left" id="sobre-titulo">Um mundo de conhecimento ao seu alcance</h2>
+          <p>
+            A Biblioteca Digital UniFECAF oferece acesso a um vasto acervo de obras digitais,
+            periódicos científicos, bases de dados e materiais de apoio para todos os cursos
+            da instituição.
+          </p>
+          <p>
+            Com tecnologia de ponta e uma interface intuitiva, a plataforma permite que
+            estudantes, professores e pesquisadores encontrem, leiam e baixem conteúdos
+            acadêmicos de qualidade a qualquer hora, de qualquer dispositivo.
+          </p>
+          <ul class="sobre__features" aria-label="Recursos da biblioteca">
+            <li>
+              <span class="feature-icon" aria-hidden="true">✅</span>
+              Acervo atualizado com obras nacionais e internacionais
+            </li>
+            <li>
+              <span class="feature-icon" aria-hidden="true">✅</span>
+              Integração com as principais bases de dados científicas
+            </li>
+            <li>
+              <span class="feature-icon" aria-hidden="true">✅</span>
+              Acesso via computador, tablet e smartphone
+            </li>
+            <li>
+              <span class="feature-icon" aria-hidden="true">✅</span>
+              Suporte de bibliotecários especializados
+            </li>
+          </ul>
+          <a href="#contato" class="btn btn--primary">Entre em contato</a>
+        </div>
+        <!-- Image column -->
+        <div class="sobre__image-block">
+          <div class="sobre__image-main">
+            <img
+              src="assets/imagens/sobre-biblioteca.jpg"
+              alt="Estudantes utilizando a biblioteca digital em computadores e tablets"
+              loading="lazy"
+              onerror="this.style.display='none'; this.parentElement.classList.add('img-placeholder')"
+            />
+          </div>
+          <!-- Mini gallery row -->
+          <div class="sobre__gallery" aria-label="Galeria de imagens da biblioteca">
+            <div class="gallery-thumb">
+              <img
+                src="assets/imagens/galeria-1.jpg"
+                alt="Espaço de leitura da biblioteca"
+                loading="lazy"
+                onerror="this.style.display='none'; this.parentElement.classList.add('img-placeholder-sm')"
+              />
+            </div>
+            <div class="gallery-thumb">
+              <img
+                src="assets/imagens/galeria-2.jpg"
+                alt="Acervo físico da biblioteca"
+                loading="lazy"
+                onerror="this.style.display='none'; this.parentElement.classList.add('img-placeholder-sm')"
+              />
+            </div>
+            <div class="gallery-thumb">
+              <img
+                src="assets/imagens/galeria-3.jpg"
+                alt="Estudante pesquisando na plataforma digital"
+                loading="lazy"
+                onerror="this.style.display='none'; this.parentElement.classList.add('img-placeholder-sm')"
+              />
+            </div>
+            <div class="gallery-thumb">
+              <img
+                src="assets/imagens/galeria-4.jpg"
+                alt="Sala de estudo em grupo"
+                loading="lazy"
+                onerror="this.style.display='none'; this.parentElement.classList.add('img-placeholder-sm')"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== BANNER CTA ========== -->
+    <section class="banner-cta" aria-label="Chamada para acesso ao portal">
+      <div class="banner-cta__overlay" aria-hidden="true"></div>
+      <div class="container banner-cta__content">
+        <h2 class="banner-cta__title">Acesse o portal e comece a aprender hoje</h2>
+        <p class="banner-cta__subtitle">
+          Disponível para todos os alunos matriculados na UniFECAF.
+          Use seu login institucional para ter acesso completo ao acervo.
+        </p>
+        <a href="#livros" class="btn btn--white">Acessar o acervo</a>
+      </div>
+    </section>
+
+    <!-- ========== NOSSOS LIVROS ========== -->
+    <section class="livros" id="livros" aria-labelledby="livros-titulo">
+      <div class="container">
+        <span class="eyebrow center">Destaques do Acervo</span>
+        <h2 class="section-title center" id="livros-titulo">Nossos Livros</h2>
+        <p class="section-subtitle">Confira as obras mais acessadas e recomendadas pelos professores</p>
+
+        <div class="livros__grid">
+
+          <!-- Card 1 -->
+          <article class="livro-card" aria-label="Livro: Fundamentos de Programação">
+            <div class="livro-card__img">
+              <img
+                src="assets/imagens/livro-1.jpg"
+                alt="Capa do livro Fundamentos de Programação"
+                loading="lazy"
+                onerror="this.style.display='none'; this.parentElement.classList.add('livro-img-placeholder')"
+              />
+              <span class="livro-card__badge">Tecnologia</span>
+            </div>
+            <div class="livro-card__body">
+              <h3 class="livro-card__title">Fundamentos de Programação</h3>
+              <p class="livro-card__author">Autor: José Silva</p>
+              <p class="livro-card__desc">
+                Introdução aos conceitos essenciais de lógica de programação,
+                algoritmos e estruturas de dados para iniciantes.
+              </p>
+              <a href="#" class="btn btn--primary btn--sm" aria-label="Saiba mais sobre Fundamentos de Programação">Saiba mais</a>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="livro-card" aria-label="Livro: Gestão Empresarial Moderna">
+            <div class="livro-card__img">
+              <img
+                src="assets/imagens/livro-2.jpg"
+                alt="Capa do livro Gestão Empresarial Moderna"
+                loading="lazy"
+                onerror="this.style.display='none'; this.parentElement.classList.add('livro-img-placeholder')"
+              />
+              <span class="livro-card__badge">Administração</span>
+            </div>
+            <div class="livro-card__body">
+              <h3 class="livro-card__title">Gestão Empresarial Moderna</h3>
+              <p class="livro-card__author">Autor: Maria Costa</p>
+              <p class="livro-card__desc">
+                Abordagem prática e atualizada dos princípios de gestão,
+                liderança e planejamento estratégico nas organizações contemporâneas.
+              </p>
+              <a href="#" class="btn btn--primary btn--sm" aria-label="Saiba mais sobre Gestão Empresarial Moderna">Saiba mais</a>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="livro-card" aria-label="Livro: Direito Constitucional Brasileiro">
+            <div class="livro-card__img">
+              <img
+                src="assets/imagens/livro-3.jpg"
+                alt="Capa do livro Direito Constitucional Brasileiro"
+                loading="lazy"
+                onerror="this.style.display='none'; this.parentElement.classList.add('livro-img-placeholder')"
+              />
+              <span class="livro-card__badge">Direito</span>
+            </div>
+            <div class="livro-card__body">
+              <h3 class="livro-card__title">Direito Constitucional Brasileiro</h3>
+              <p class="livro-card__author">Autor: Carlos Mendes</p>
+              <p class="livro-card__desc">
+                Análise aprofundada da Constituição Federal de 1988, seus princípios
+                fundamentais e a aplicação prática nos tribunais brasileiros.
+              </p>
+              <a href="#" class="btn btn--primary btn--sm" aria-label="Saiba mais sobre Direito Constitucional Brasileiro">Saiba mais</a>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="livro-card" aria-label="Livro: Cálculo Diferencial e Integral">
+            <div class="livro-card__img">
+              <img
+                src="assets/imagens/livro-4.jpg"
+                alt="Capa do livro Cálculo Diferencial e Integral"
+                loading="lazy"
+                onerror="this.style.display='none'; this.parentElement.classList.add('livro-img-placeholder')"
+              />
+              <span class="livro-card__badge">Exatas</span>
+            </div>
+            <div class="livro-card__body">
+              <h3 class="livro-card__title">Cálculo Diferencial e Integral</h3>
+              <p class="livro-card__author">Autor: Ana Rodrigues</p>
+              <p class="livro-card__desc">
+                Do básico ao avançado, este livro guia o estudante pelos fundamentos
+                do cálculo com exemplos práticos e exercícios resolvidos.
+              </p>
+              <a href="#" class="btn btn--primary btn--sm" aria-label="Saiba mais sobre Cálculo Diferencial e Integral">Saiba mais</a>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="livro-card" aria-label="Livro: Psicologia do Desenvolvimento">
+            <div class="livro-card__img">
+              <img
+                src="assets/imagens/livro-5.jpg"
+                alt="Capa do livro Psicologia do Desenvolvimento"
+                loading="lazy"
+                onerror="this.style.display='none'; this.parentElement.classList.add('livro-img-placeholder')"
+              />
+              <span class="livro-card__badge">Psicologia</span>
+            </div>
+            <div class="livro-card__body">
+              <h3 class="livro-card__title">Psicologia do Desenvolvimento</h3>
+              <p class="livro-card__author">Autor: Fernanda Lima</p>
+              <p class="livro-card__desc">
+                Exploração das principais teorias do desenvolvimento humano,
+                desde a infância até a vida adulta, com base em evidências científicas.
+              </p>
+              <a href="#" class="btn btn--primary btn--sm" aria-label="Saiba mais sobre Psicologia do Desenvolvimento">Saiba mais</a>
+            </div>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="livro-card" aria-label="Livro: Engenharia de Software">
+            <div class="livro-card__img">
+              <img
+                src="assets/imagens/livro-6.jpg"
+                alt="Capa do livro Engenharia de Software"
+                loading="lazy"
+                onerror="this.style.display='none'; this.parentElement.classList.add('livro-img-placeholder')"
+              />
+              <span class="livro-card__badge">Tecnologia</span>
+            </div>
+            <div class="livro-card__body">
+              <h3 class="livro-card__title">Engenharia de Software</h3>
+              <p class="livro-card__author">Autor: Roberto Souza</p>
+              <p class="livro-card__desc">
+                Metodologias ágeis, boas práticas de desenvolvimento e gerenciamento
+                de projetos de software na era digital.
+              </p>
+              <a href="#" class="btn btn--primary btn--sm" aria-label="Saiba mais sobre Engenharia de Software">Saiba mais</a>
+            </div>
+          </article>
+
+        </div><!-- /.livros__grid -->
+
+        <div class="livros__cta">
+          <a href="#" class="btn btn--secondary">Ver todo o acervo</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========== SERVIÇOS ========== -->
+    <section class="servicos" id="servicos" aria-labelledby="servicos-titulo">
+      <div class="container">
+        <span class="eyebrow center">O que oferecemos</span>
+        <h2 class="section-title center" id="servicos-titulo">Serviços da Biblioteca</h2>
+        <p class="section-subtitle">Tudo o que você precisa para sua pesquisa acadêmica em um só lugar</p>
+        <div class="servicos__grid">
+          <div class="servico-item">
+            <div class="servico-item__icon" aria-hidden="true">🔍</div>
+            <h3>Pesquisa Online</h3>
+            <p>Busque por título, autor, assunto ou ISBN em todo o acervo digital disponível.</p>
+          </div>
+          <div class="servico-item">
+            <div class="servico-item__icon" aria-hidden="true">📥</div>
+            <h3>Download de E-books</h3>
+            <p>Baixe obras completas em PDF e EPUB para leitura offline a qualquer momento.</p>
+          </div>
+          <div class="servico-item">
+            <div class="servico-item__icon" aria-hidden="true">🗂️</div>
+            <h3>Bases de Dados</h3>
+            <p>Acesso a periódicos científicos nacionais e internacionais indexados.</p>
+          </div>
+          <div class="servico-item">
+            <div class="servico-item__icon" aria-hidden="true">📋</div>
+            <h3>Normalização ABNT</h3>
+            <p>Orientação para referências bibliográficas e normas acadêmicas da ABNT.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== AS UNIDADES ========== -->
+    <section class="unidades" id="unidades" aria-labelledby="unidades-titulo">
+      <div class="container">
+        <span class="eyebrow">As Unidades</span>
+        <h2 class="section-title left" id="unidades-titulo">Nossas Unidades</h2>
+        <p class="section-subtitle left">Conheça os espaços físicos da Biblioteca UniFECAF</p>
+
+        <!-- Unidade 1 -->
+        <article class="unidade-item" aria-label="Unidade 1: Campus Mooca">
+          <div class="unidade-item__img">
+            <img
+              src="assets/imagens/unidade-1.jpg"
+              alt="Campus Mooca da UniFECAF — espaço de biblioteca moderno"
+              loading="lazy"
+              onerror="this.style.display='none'; this.parentElement.classList.add('img-placeholder')"
+            />
+          </div>
+          <div class="unidade-item__text">
+            <h3>Unidade 1 — Campus Mooca</h3>
+            <p>
+              Localizada no coração da Mooca, a unidade principal da Biblioteca UniFECAF
+              conta com amplo espaço de leitura, salas de estudo individual e em grupo,
+              terminais de acesso ao acervo digital e atendimento presencial de
+              bibliotecários especializados.
+            </p>
+            <p>
+              Com mais de 500 m² dedicados ao aprendizado, o espaço oferece ambiente
+              silencioso e climatizado, além de wi-fi de alta velocidade para todos os estudantes.
+            </p>
+            <a href="#contato" class="btn btn--outline-dark">Como chegar</a>
+          </div>
+        </article>
+
+        <!-- Unidade 2 -->
+        <article class="unidade-item unidade-item--reverse" aria-label="Unidade 2: Campus Vila Prudente">
+          <div class="unidade-item__img">
+            <img
+              src="assets/imagens/unidade-2.jpg"
+              alt="Campus Vila Prudente da UniFECAF — biblioteca com computadores"
+              loading="lazy"
+              onerror="this.style.display='none'; this.parentElement.classList.add('img-placeholder')"
+            />
+          </div>
+          <div class="unidade-item__text">
+            <h3>Unidade 2 — Campus Vila Prudente</h3>
+            <p>
+              A unidade de Vila Prudente é referência em tecnologia e inovação educacional.
+              Equipada com laboratórios de pesquisa digital, computadores de última geração
+              e acesso exclusivo a bases de dados internacionais, atende alunos dos cursos
+              de tecnologia, exatas e engenharias.
+            </p>
+            <p>
+              O espaço também dispõe de área de convivência integrada para debates acadêmicos
+              e projetos interdisciplinares.
+            </p>
+            <a href="#contato" class="btn btn--outline-dark">Como chegar</a>
+          </div>
+        </article>
+
+        <!-- Unidade 3 -->
+        <article class="unidade-item" aria-label="Unidade 3: Campus Santo André">
+          <div class="unidade-item__img">
+            <img
+              src="assets/imagens/unidade-3.jpg"
+              alt="Campus Santo André da UniFECAF — biblioteca com acervo físico"
+              loading="lazy"
+              onerror="this.style.display='none'; this.parentElement.classList.add('img-placeholder')"
+            />
+          </div>
+          <div class="unidade-item__text">
+            <h3>Unidade 3 — Campus Santo André</h3>
+            <p>
+              Com um acervo físico de mais de 20.000 volumes e acesso completo à plataforma
+              digital, o campus de Santo André oferece suporte acadêmico completo para
+              estudantes das áreas de saúde, humanas e sociais aplicadas.
+            </p>
+            <p>
+              A unidade conta ainda com um núcleo de pesquisa dedicado à produção
+              científica dos alunos de pós-graduação, com orientação especializada.
+            </p>
+            <a href="#contato" class="btn btn--outline-dark">Como chegar</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ========== CONTATO ========== -->
+    <section class="contato" id="contato" aria-labelledby="contato-titulo">
+      <div class="container contato__grid">
+        <!-- Info -->
+        <div class="contato__info">
+          <span class="eyebrow">Fale Conosco</span>
+          <h2 class="section-title left" id="contato-titulo">Entre em Contato</h2>
+          <p>
+            Precisa de ajuda para encontrar um material, tirar dúvidas sobre o acervo
+            ou orientações sobre normalização de trabalhos acadêmicos?
+            Nossa equipe está à disposição.
+          </p>
+
+          <ul class="contato__list" aria-label="Informações de contato">
+            <li>
+              <span class="contato__icon" aria-hidden="true">📍</span>
+              <div>
+                <strong>Endereço</strong>
+                <span>Rua das Flores, 123 — Mooca, São Paulo – SP</span>
+              </div>
+            </li>
+            <li>
+              <span class="contato__icon" aria-hidden="true">📞</span>
+              <div>
+                <strong>Telefone</strong>
+                <a href="tel:+551100000000">(11) 0000-0000</a>
+              </div>
+            </li>
+            <li>
+              <span class="contato__icon" aria-hidden="true">✉️</span>
+              <div>
+                <strong>E-mail</strong>
+                <a href="mailto:biblioteca@unifecaf.com.br">biblioteca@unifecaf.com.br</a>
+              </div>
+            </li>
+            <li>
+              <span class="contato__icon" aria-hidden="true">🕐</span>
+              <div>
+                <strong>Horário de funcionamento</strong>
+                <span>Segunda a sexta: 8h às 22h | Sábado: 8h às 14h</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Form -->
+        <div class="contato__form-block">
+          <form class="contato__form" action="#" method="post" novalidate aria-label="Formulário de contato">
+            <h3 class="contato__form-title">Envie sua mensagem</h3>
+
+            <div class="form-group">
+              <label for="nome">Nome completo <span aria-hidden="true">*</span></label>
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                placeholder="Seu nome"
+                required
+                autocomplete="name"
+                aria-required="true"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">E-mail institucional <span aria-hidden="true">*</span></label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="seunome@unifecaf.edu.br"
+                required
+                autocomplete="email"
+                aria-required="true"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="assunto">Assunto</label>
+              <select id="assunto" name="assunto" aria-label="Selecione o assunto da mensagem">
+                <option value="">Selecione um assunto</option>
+                <option value="acervo">Pesquisa de acervo</option>
+                <option value="acesso">Acesso à plataforma</option>
+                <option value="normas">Normalização ABNT</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="mensagem">Mensagem <span aria-hidden="true">*</span></label>
+              <textarea
+                id="mensagem"
+                name="mensagem"
+                rows="4"
+                placeholder="Descreva sua dúvida ou solicitação"
+                required
+                aria-required="true"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--full">Enviar mensagem</button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <span aria-hidden="true">📚</span>
+          <div>
+            <strong>Biblioteca Digital</strong>
+            <span>UniFECAF</span>
+          </div>
+        </div>
+        <p class="footer__tagline">
+          Conhecimento ao alcance de todos os estudantes UniFECAF,
+          a qualquer hora, de qualquer lugar.
+        </p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Links do rodapé">
+        <div class="footer__col">
+          <h4>Biblioteca</h4>
+          <ul>
+            <li><a href="#sobre">Sobre nós</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#unidades">Unidades</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Acervo</h4>
+          <ul>
+            <li><a href="#livros">Livros digitais</a></li>
+            <li><a href="#categorias">Categorias</a></li>
+            <li><a href="#">Periódicos</a></li>
+            <li><a href="#">Bases de dados</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Institucional</h4>
+          <ul>
+            <li><a href="https://www.unifecaf.com.br" target="_blank" rel="noopener noreferrer">Portal UniFECAF</a></li>
+            <li><a href="#">AVA — Ambiente Virtual</a></li>
+            <li><a href="#">Política de privacidade</a></li>
+            <li><a href="#">Acessibilidade</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container">
+        <p>© 2026 Biblioteca Digital UniFECAF — Todos os direitos reservados.</p>
+        <p>UniFECAF — Centro Universitário FECAF | CNPJ: 17.238.945/0001-49</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== BACK TO TOP ========== -->
+  <a href="#inicio" class="back-to-top" id="backToTop" aria-label="Voltar ao topo da página">▲</a>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script>
+    // Mobile nav toggle
+    const toggle = document.getElementById('navToggle');
+    const nav    = document.getElementById('mainNav');
+
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('nav--open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close nav when a link is clicked
+    nav.querySelectorAll('.nav__link').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('nav--open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Back-to-top button visibility
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('back-to-top--visible', window.scrollY > 400);
+    });
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav__link');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(sec => {
+        if (window.scrollY >= sec.offsetTop - 100) current = sec.id;
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('nav__link--active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('nav__link--active');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
