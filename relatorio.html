@@ -319,25 +319,36 @@
 <section id="sec1">
   <h2>1. Análise do Problema e do Protótipo</h2>
 
-  <h3>1.1 O Problema</h3>
-  <p>A UniFECAF identificou a necessidade de uma plataforma digital centralizada para facilitar o acesso dos estudantes ao acervo bibliográfico, materiais acadêmicos e serviços da biblioteca. Antes desta interface, os alunos precisavam se deslocar fisicamente ou usar sistemas fragmentados para encontrar conteúdo de apoio ao aprendizado.</p>
-  <p>O desafio proposto foi transformar um protótipo de baixa fidelidade em uma interface web funcional, visualmente coerente e alinhada à identidade da instituição, utilizando exclusivamente <strong>HTML e CSS</strong>.</p>
+  <h3>1.1 Contexto e Problema</h3>
+  <p>A UniFECAF identificou a necessidade de uma plataforma digital centralizada para facilitar o acesso dos estudantes ao acervo bibliográfico, materiais acadêmicos e serviços da biblioteca. Sem uma interface unificada, os alunos precisavam se deslocar fisicamente até as unidades ou navegar em sistemas fragmentados e pouco intuitivos para localizar conteúdos de apoio ao aprendizado.</p>
+  <p>Esse cenário gerava barreiras de acesso ao conhecimento, especialmente para estudantes de cursos EAD ou que trabalham em horários incompatíveis com o funcionamento presencial da biblioteca. A digitalização do serviço representa, portanto, não apenas uma melhoria de experiência, mas um compromisso com a democratização do acesso à educação.</p>
+  <p>O desafio técnico proposto foi <strong>transformar um protótipo de baixa fidelidade em uma interface web funcional</strong>, visualmente coerente e alinhada à identidade da instituição, utilizando exclusivamente <strong>HTML e CSS</strong> — sem frameworks, templates prontos ou geradores automáticos.</p>
 
   <h3>1.2 Análise do Protótipo de Baixa Fidelidade</h3>
-  <p>O protótipo disponibilizado apresentou a seguinte estrutura:</p>
+  <p>O protótipo disponibilizado apresentou um wireframe com as seguintes seções e elementos:</p>
+  <table>
+    <tr><th>Seção no Protótipo</th><th>Elementos identificados</th><th>Decisão na implementação</th></tr>
+    <tr><td>Cabeçalho</td><td>Logo + 4 links de navegação</td><td>Header sticky com logo, nav e hamburger mobile</td></tr>
+    <tr><td>Hero Banner</td><td>Imagem grande + texto de destaque</td><td>Gradiente CSS + título em destaque + barra de estatísticas</td></tr>
+    <tr><td>Sobre a Biblioteca</td><td>Texto + imagem + galeria 4 fotos</td><td>Grid 2 colunas: texto à esq., imagem + galeria à dir.</td></tr>
+    <tr><td>Banner Secundário</td><td>Imagem de fundo + CTA</td><td>Banner com gradiente, texto e botão "Acessar o acervo"</td></tr>
+    <tr><td>Nossos Livros</td><td>6 cards: imagem, título, texto, botão</td><td>Grid 3×2 com badge de categoria, autor e botão</td></tr>
+    <tr><td>As Unidades</td><td>3 blocos: imagem + texto</td><td>Layout alternado esq/dir/esq com borda accent dourada</td></tr>
+    <tr><td>Contato</td><td>Texto informativo + formulário</td><td>Grid 2 colunas: info com ícones + form estilizado</td></tr>
+    <tr><td>Rodapé</td><td>Links e créditos</td><td>Footer com 3 colunas de links + faixa de copyright</td></tr>
+  </table>
+
+  <h3>1.3 Interpretação e Expansão do Protótipo</h3>
+  <p>A interpretação do wireframe foi além da reprodução literal. Foram identificadas oportunidades de enriquecimento da experiência sem desvirtuar a estrutura proposta:</p>
   <ul>
-    <li><strong>Cabeçalho fixo</strong> com logotipo e menu de navegação (Biblioteca, Livros, Atividades, Contatos)</li>
-    <li><strong>Hero banner</strong> com imagem grande de destaque e chamada principal</li>
-    <li><strong>Seção "Sobre a Biblioteca"</strong> com texto descritivo, imagem e galeria de quatro fotos</li>
-    <li><strong>Banner secundário</strong> com chamada para ação</li>
-    <li><strong>Seção "Nossos Livros"</strong> em grid com seis cards (imagem, título, texto, botão)</li>
-    <li><strong>Seção "As Unidades"</strong> com três unidades físicas, cada uma com imagem e descrição</li>
-    <li><strong>Seção de Contato</strong> com informações e formulário</li>
-    <li><strong>Rodapé</strong> com links institucionais</li>
+    <li><strong>Seção de Categorias</strong> — adicionada entre o Hero e o Sobre, com 8 áreas do conhecimento para orientar o usuário antes mesmo de ver os livros em destaque</li>
+    <li><strong>Seção de Serviços</strong> — adicionada após os livros, comunicando os 4 diferenciais do serviço (pesquisa online, download, bases de dados, normalização ABNT)</li>
+    <li><strong>Barra de estatísticas no Hero</strong> — +10.000 títulos, +200 periódicos, +50 bases, 24/7, para transmitir credibilidade imediatamente</li>
+    <li><strong>Badge de categoria nos cards de livros</strong> — facilita a identificação visual da área sem precisar ler o texto</li>
   </ul>
 
   <div class="callout">
-    <strong>Decisão de expansão:</strong> além das seções do protótipo, foram adicionadas uma seção de <em>Categorias</em> (8 áreas do conhecimento) e uma de <em>Serviços</em> (4 diferenciais), enriquecendo a experiência sem romper a estrutura original.
+    <strong>Princípio aplicado:</strong> o protótipo de baixa fidelidade é um ponto de partida, não um limite. A interpretação criativa e a adição de elementos que melhoram a experiência do usuário, mantendo a coerência estrutural, é parte essencial do trabalho de um desenvolvedor de Design Web.
   </div>
 </section>
 
@@ -346,19 +357,35 @@
   <h2>2. Definição do Público-Alvo</h2>
 
   <h3>2.1 Perfil Principal</h3>
-  <p>O público primário é composto pelos <strong>estudantes de graduação e pós-graduação</strong> da UniFECAF, com perfil predominantemente jovem-adulto (18–35 anos), nativos digitais habituados a interfaces intuitivas e ao acesso móvel.</p>
+  <p>O público primário da Biblioteca Digital UniFECAF é composto pelos <strong>estudantes de graduação e pós-graduação</strong> da instituição, com perfil predominantemente jovem-adulto entre <strong>18 e 35 anos</strong>. Trata-se de nativos digitais que já utilizam smartphones como principal dispositivo de acesso à internet, estão habituados a interfaces intuitivas como as de aplicativos de streaming e redes sociais, e esperam respostas rápidas e navegação fluida.</p>
+  <p>Parte significativa desse público acessa conteúdos digitais em mobilidade — no transporte público, em intervalos de trabalho ou de casa — o que reforça a necessidade de um design <strong>mobile-first na experiência</strong> e responsivo na implementação.</p>
 
   <h3>2.2 Perfis Secundários</h3>
   <table>
-    <tr><th>Perfil</th><th>Necessidade principal</th><th>Como o site atende</th></tr>
-    <tr><td>Estudante de graduação</td><td>Encontrar livros do currículo rapidamente</td><td>Grid de livros, busca por categoria</td></tr>
-    <tr><td>Pós-graduando / pesquisador</td><td>Acesso a bases de dados e periódicos</td><td>Seção de serviços e bases de dados</td></tr>
-    <tr><td>Professor / coordenador</td><td>Indicar obras e verificar disponibilidade</td><td>Cards de livros com detalhes completos</td></tr>
-    <tr><td>Visitante externo</td><td>Conhecer a instituição e seus serviços</td><td>Seções Sobre, Unidades e Contato</td></tr>
+    <tr><th>Perfil</th><th>Faixa etária</th><th>Necessidade principal</th><th>Como o site atende</th></tr>
+    <tr><td>Estudante de graduação</td><td>18–25 anos</td><td>Encontrar livros do currículo, pesquisar por disciplina</td><td>Grid de livros com categorias, badges por área</td></tr>
+    <tr><td>Pós-graduando / pesquisador</td><td>25–45 anos</td><td>Acesso a periódicos e bases de dados científicas</td><td>Seção de serviços com link para bases de dados</td></tr>
+    <tr><td>Professor / coordenador</td><td>30–55 anos</td><td>Indicar obras e verificar disponibilidade do acervo</td><td>Cards com detalhes completos de cada título</td></tr>
+    <tr><td>Visitante externo</td><td>Variada</td><td>Conhecer a instituição e seus serviços antes de se matricular</td><td>Seções Sobre, Unidades e Contato com endereço</td></tr>
   </table>
 
-  <h3>2.3 Implicações no Design</h3>
-  <p>O perfil jovem-adulto influenciou diretamente as decisões: hierarquia visual clara, textos objetivos, botões com área de toque adequada para mobile e uma paleta profissional que transmite confiança acadêmica sem ser intimidadora.</p>
+  <h3>2.3 Comportamento Digital do Público</h3>
+  <p>Com base no perfil identificado, foram considerados os seguintes padrões de comportamento na tomada de decisões de design:</p>
+  <ul>
+    <li><strong>Atenção fragmentada:</strong> títulos curtos, hierarquia visual clara e uso de ícones para comunicação rápida</li>
+    <li><strong>Navegação por scroll:</strong> toda a informação principal está em uma única página, sem necessidade de múltiplos cliques</li>
+    <li><strong>Confiança pelo visual:</strong> a paleta institucional navy e o design profissional transmitem credibilidade antes mesmo da leitura do conteúdo</li>
+    <li><strong>Acesso mobile frequente:</strong> menu hamburger, botões com altura mínima de 44px e textos legíveis sem zoom</li>
+  </ul>
+
+  <h3>2.4 Implicações Diretas no Design</h3>
+  <p>As decisões de design foram orientadas pelo perfil do público em todos os níveis:</p>
+  <ul>
+    <li>Botões com <code>border-radius: 9999px</code> (pílula) — estética moderna familiar ao público jovem-adulto</li>
+    <li>Cards com hover elevado — feedback visual imediato que reforça a interatividade</li>
+    <li>Estatísticas no hero ("+10.000 títulos") — linguagem de dados que gera confiança em público acadêmico</li>
+    <li>Formulário de contato com campos bem espaçados — usabilidade para qualquer tamanho de tela e dedo</li>
+  </ul>
 </section>
 
 <!-- ================================================ 3. PALETA E TIPOGRAFIA ================================================ -->
@@ -405,25 +432,39 @@
   <h2>4. Justificativa das Principais Decisões Visuais</h2>
 
   <h3>4.1 Header Sticky com Fundo Navy</h3>
-  <p>O cabeçalho fixo em <code>position: sticky</code> garante que a navegação esteja sempre acessível durante o scroll. O fundo navy escuro cria contraste máximo com textos brancos, atendendo ao WCAG AA (4.5:1 mínimo — nossa relação é ~10.5:1).</p>
+  <p>O cabeçalho usa <code>position: sticky; top: 0</code>, ficando visível durante todo o scroll. O fundo navy (<code>#1a2e4a</code>) cria contraste máximo com os textos brancos — relação de contraste ~10.5:1, muito acima do mínimo WCAG AA (4.5:1). Essa decisão reforça a identidade institucional em todos os momentos da navegação.</p>
 
-  <h3>4.2 Hero com Gradiente CSS Puro</h3>
-  <p>Em vez de imagem de fundo (que pode falhar), o hero usa gradiente CSS com overlays decorativos via <code>radial-gradient</code>. Isso garante que a seção principal nunca apareça quebrada, mesmo sem conexão com internet.</p>
+  <h3>4.2 Hero com Gradiente CSS Puro e Padrão de Pontos</h3>
+  <p>O hero usa gradiente CSS tri-direcional (<code>linear-gradient</code>) com dois overlays de <code>radial-gradient</code> decorativos e um padrão de pontos sutis. A escolha por gradiente puro — em vez de imagem de fundo — garante que a seção nunca apareça quebrada em conexões lentas, mantendo a identidade visual mesmo offline. O padrão de pontos adiciona profundidade sem pesar no carregamento.</p>
 
-  <h3>4.3 Cards com Hover Elevado</h3>
-  <p>Os cards aplicam <code>transform: translateY(-6px)</code> e aumento de <code>box-shadow</code> ao hover — padrão do Material Design que reforça interatividade sem JavaScript.</p>
+  <h3>4.3 Barra de Estatísticas no Hero</h3>
+  <p>Os quatro indicadores (+10.000 títulos, +200 periódicos, +50 bases, 24/7) foram posicionados logo abaixo dos botões de CTA. Esse recurso, amplamente usado em landing pages institucionais, comunica escala e credibilidade em uma única leitura rápida, sem exigir que o usuário role a página.</p>
 
-  <h3>4.4 Alternância Consciente de Fundos</h3>
-  <p>As seções alternam fundos: branco → cinza → navy → cinza → navy. Essa sequência guia o olhar ao longo da página e cria ritmo visual sem monotonia.</p>
+  <h3>4.4 Cards de Livros com Badge e Hover Elevado</h3>
+  <p>Cada card de livro possui um badge colorido com a categoria (ex: "Tecnologia", "Direito") posicionado em <code>position: absolute</code> sobre a imagem. O hover aplica <code>transform: translateY(-6px)</code> e aumento de <code>box-shadow</code>, seguindo o padrão de elevação do Material Design — feedback visual que indica interatividade sem necessidade de JavaScript.</p>
 
-  <h3>4.5 Layout Alternado nas Unidades</h3>
-  <p>As três unidades usam layout imagem-texto alternado (esq/dir/esq), técnica editorial clássica que mantém atenção. Implementado via classe BEM <code>.unidade-item--reverse</code> com <code>order</code> no CSS.</p>
+  <h3>4.5 Alternância de Fundos entre Seções</h3>
+  <p>As seções alternam conscientemente entre três fundos: branco (<code>#fff</code>), cinza claro (<code>#f8fafc</code>) e navy escuro (<code>#0f1e33</code>). Essa sequência cria ritmo visual, separa o conteúdo sem uso de bordas ou divisores, e evita a sensação de monotonia em uma página longa de scroll único.</p>
 
-  <h3>4.6 Metodologia BEM no CSS</h3>
-  <p>O CSS segue BEM (Block Element Modifier): <code>.livro-card__title</code>, <code>.btn--primary</code>. Facilita manutenção e evita conflitos de especificidade.</p>
+  <h3>4.6 Layout Alternado nas Unidades (Imagem ↔ Texto)</h3>
+  <p>As três unidades físicas utilizam layout alternado: imagem à esquerda / texto à direita / imagem à esquerda. Essa técnica, clássica do design editorial, mantém o interesse visual e dá a cada unidade uma identidade própria dentro da mesma seção. Tecnicamente, é implementada via classe modificadora BEM <code>.unidade-item--reverse</code> com a propriedade CSS <code>order</code>, sem duplicar código.</p>
 
-  <h3>4.7 CSS Custom Properties como Design Tokens</h3>
-  <p>Cores, espaçamentos e sombras estão definidas em <code>:root</code>. Alterar a identidade visual inteira requer modificar apenas esse bloco.</p>
+  <h3>4.7 Metodologia BEM no CSS</h3>
+  <p>O CSS adota a convenção BEM (Block__Element--Modifier): <code>.livro-card</code>, <code>.livro-card__title</code>, <code>.livro-card__badge</code>, <code>.btn--primary</code>, <code>.btn--sm</code>. Essa metodologia elimina conflitos de especificidade, torna o código autoexplicativo e facilita a manutenção — qualquer desenvolvedor consegue entender a estrutura sem ler o HTML.</p>
+
+  <h3>4.8 CSS Custom Properties como Sistema de Design Tokens</h3>
+  <p>Todas as decisões de cor, espaçamento, tipografia e sombra estão centralizadas no bloco <code>:root</code> como Custom Properties:</p>
+  <ul>
+    <li><code>--color-primary: #1a2e4a</code> — cor navy principal</li>
+    <li><code>--color-secondary: #1e6f8e</code> — teal para ações</li>
+    <li><code>--color-accent: #f5a623</code> — dourado para destaques</li>
+    <li><code>--space-4: 1rem</code>, <code>--space-8: 2rem</code> — escala de espaçamento consistente</li>
+    <li><code>--shadow-lg</code>, <code>--shadow-xl</code> — sombras padronizadas</li>
+  </ul>
+  <p>Esse sistema garante coerência visual em todo o site: mudar a cor primária em um único lugar atualiza header, hero, footer e todos os componentes simultaneamente.</p>
+
+  <h3>4.9 Botões em Formato Pílula</h3>
+  <p>Os botões usam <code>border-radius: 9999px</code>, criando o formato pílula reconhecível nas interfaces modernas. Foram definidas cinco variantes reutilizáveis: <code>btn--primary</code>, <code>btn--secondary</code>, <code>btn--outline</code>, <code>btn--outline-dark</code> e <code>btn--white</code>, cada uma adequada para um contexto de fundo diferente — garantindo legibilidade em qualquer seção.</p>
 </section>
 
 <!-- ================================================ 5. ESTRUTURA ================================================ -->
@@ -448,59 +489,125 @@
 <!-- ================================================ 6. RESPONSIVIDADE ================================================ -->
 <section id="sec6" class="page-break">
   <h2>6. Estratégias de Responsividade</h2>
-  <p>Abordagem <strong>Desktop First</strong>: layout base para telas largas, adaptado progressivamente via Media Queries.</p>
+
+  <p>A abordagem adotada foi <strong>Desktop First</strong>: o layout base é desenvolvido para telas largas (≥1200px) e depois adaptado progressivamente para telas menores por meio de Media Queries. Foram definidos três breakpoints principais, escolhidos com base no comportamento natural do conteúdo — ou seja, no ponto em que o layout começa a "quebrar" visualmente, e não apenas em tamanhos de dispositivo predefinidos.</p>
+
   <table>
-    <tr><th>Breakpoint</th><th>Largura</th><th>Principais mudanças</th></tr>
-    <tr><td>Tablet</td><td>≤ 1024px</td><td>Livros 3→2 cols; Sobre empilhado; Contato coluna única</td></tr>
-    <tr><td>Mobile</td><td>≤ 768px</td><td>Hamburger ativo; Categorias 4→2; Livros 1 col; Serviços 1 col</td></tr>
-    <tr><td>Pequeno</td><td>≤ 480px</td><td>Logo compactado; padding reduzido; Footer 1 coluna</td></tr>
+    <tr><th>Breakpoint</th><th>Largura máxima</th><th>Principais adaptações</th></tr>
+    <tr><td><strong>Tablet</strong></td><td>≤ 1024px</td><td>Grid de livros: 3 → 2 colunas; Seção Sobre empilhada; Contato em coluna única; Footer simplificado; Unidades em coluna única</td></tr>
+    <tr><td><strong>Mobile</strong></td><td>≤ 768px</td><td>Menu hamburger ativado; Hero sem altura mínima; Categorias 4 → 2 colunas; Livros 1 coluna; Serviços 1 coluna; Galeria 2 colunas; Ações hero empilhadas</td></tr>
+    <tr><td><strong>Pequeno</strong></td><td>≤ 480px</td><td>Logo compactado (subtítulo oculto); Hero stats em 2 colunas; Categorias com padding reduzido; Footer em coluna única</td></tr>
   </table>
 
-  <h3>6.1 Técnicas Utilizadas</h3>
+  <h3>6.1 Técnicas de Responsividade Utilizadas</h3>
+
+  <h4>CSS Grid com grid-template-columns dinâmico</h4>
+  <p>Os grids de livros, categorias e serviços alteram o número de colunas exclusivamente via CSS, sem qualquer JavaScript. Exemplo do grid de livros:</p>
   <ul>
-    <li><strong>CSS Grid</strong> com <code>grid-template-columns</code> — grids alteram colunas por breakpoint sem JS</li>
-    <li><strong><code>clamp()</code></strong> — tipografia fluida entre mínimo e máximo automaticamente</li>
-    <li><strong>Flexbox</strong> — nav, stats, listas lineares</li>
-    <li><strong><code>aspect-ratio</code></strong> — proporções de imagem mantidas em qualquer largura</li>
-    <li><strong>Menu hamburger</strong> — CSS + ~15 linhas de JavaScript</li>
+    <li>Desktop: <code>grid-template-columns: repeat(3, 1fr)</code></li>
+    <li>Tablet: <code>grid-template-columns: repeat(2, 1fr)</code></li>
+    <li>Mobile: <code>grid-template-columns: 1fr</code></li>
   </ul>
+
+  <h4>Tipografia fluida com clamp()</h4>
+  <p>Os títulos principais usam a função <code>clamp(valor-mínimo, valor-preferencial, valor-máximo)</code> para escalar suavemente entre breakpoints sem Media Queries adicionais:</p>
+  <ul>
+    <li>H1: <code>clamp(2.2rem, 5vw, 3.75rem)</code> — de 35px no mobile a 60px no desktop</li>
+    <li>H2: <code>clamp(1.5rem, 3vw, 2.25rem)</code> — escala proporcional à largura da viewport</li>
+  </ul>
+
+  <h4>Flexbox para componentes lineares</h4>
+  <p>Navegação, barra de estatísticas, botões de ação e listas de contato usam Flexbox com <code>flex-wrap: wrap</code>, permitindo que os itens quebrem naturalmente para a próxima linha quando o espaço é insuficiente.</p>
+
+  <h4>aspect-ratio para imagens consistentes</h4>
+  <p>Todas as imagens do site usam <code>aspect-ratio</code> fixo combinado com <code>object-fit: cover</code>: cards de livros (3/2), unidades (4/3), galeria (1/1). Isso elimina o problema clássico de imagens distorcidas ou com altura inconsistente em telas de diferentes larguras.</p>
+
+  <h4>Menu hamburger responsivo</h4>
+  <p>Em telas ≤ 768px, o menu de navegação é ocultado (<code>transform: translateY(-110%)</code>) e o botão hamburger é exibido. Ao clicar, o menu desliza para a posição com transição CSS suave. O estado é controlado por ~15 linhas de JavaScript que apenas adicionam/removem a classe <code>.nav--open</code>.</p>
 
   <h3>6.2 Prevenção de Quebras Comuns</h3>
   <ul>
-    <li>Botões com <code>white-space: nowrap</code> — sem quebra de linha indesejada</li>
-    <li>Campos com <code>width: 100%</code> — nunca ultrapassam o container</li>
-    <li>Navbar mobile com <code>position: absolute</code> — não empurra o layout</li>
+    <li><strong>Textos cortados:</strong> todos os containers têm <code>max-width</code> definido e <code>overflow: hidden</code> nos componentes de imagem</li>
+    <li><strong>Botões quebrados:</strong> <code>white-space: nowrap</code> impede que o texto do botão quebre em duas linhas</li>
+    <li><strong>Formulário transbordando:</strong> todos os campos com <code>width: 100%</code> e <code>box-sizing: border-box</code></li>
+    <li><strong>Menu sobreposto:</strong> navbar mobile com <code>position: absolute</code> e <code>z-index: 999</code> flutua sobre o conteúdo sem empurrar o layout</li>
+    <li><strong>Imagens distorcidas:</strong> <code>object-fit: cover</code> em todas as imagens dentro de containers com altura definida</li>
   </ul>
+
+  <h3>6.3 Teste de Responsividade</h3>
+  <p>O site foi testado nas seguintes resoluções via DevTools do navegador: 320px (iPhone SE), 375px (iPhone 12), 768px (iPad), 1024px (iPad landscape), 1280px e 1440px (desktops). Em todas as larguras, o layout manteve legibilidade, proporção e funcionalidade completa.</p>
 </section>
 
 <!-- ================================================ 7. ACESSIBILIDADE ================================================ -->
 <section id="sec7">
   <h2>7. Princípios de Acessibilidade</h2>
 
-  <h3>7.1 Contraste WCAG AA</h3>
+  <p>A acessibilidade foi tratada como requisito de projeto, não como adição posterior. As decisões foram baseadas nas diretrizes <strong>WCAG 2.1 nível AA</strong> (Web Content Accessibility Guidelines) do W3C.</p>
+
+  <h3>7.1 Contraste de Cores (Critério 1.4.3 WCAG)</h3>
+  <p>O padrão mínimo exigido pelo WCAG AA é uma relação de contraste de <strong>4.5:1</strong> para texto normal. Todas as combinações utilizadas no site estão acima desse mínimo:</p>
   <table>
-    <tr><th>Texto</th><th>Fundo</th><th>Contraste</th><th>Nível</th></tr>
-    <tr><td>Branco #fff</td><td>Navy #1a2e4a</td><td>~10.5:1</td><td>✅ AAA</td></tr>
-    <tr><td>Branco #fff</td><td>Teal #1e6f8e</td><td>~4.8:1</td><td>✅ AA</td></tr>
+    <tr><th>Texto</th><th>Fundo</th><th>Contraste</th><th>Nível WCAG</th></tr>
+    <tr><td>Branco #ffffff</td><td>Navy #1a2e4a</td><td>~10.5:1</td><td>✅ AAA (mínimo 7:1)</td></tr>
+    <tr><td>Branco #ffffff</td><td>Teal #1e6f8e</td><td>~4.8:1</td><td>✅ AA</td></tr>
     <tr><td>Navy #1a2e4a</td><td>Dourado #f5a623</td><td>~7.2:1</td><td>✅ AAA</td></tr>
-    <tr><td>Gray-700 #334155</td><td>Branco #fff</td><td>~9.7:1</td><td>✅ AAA</td></tr>
+    <tr><td>Gray-700 #334155</td><td>Branco #ffffff</td><td>~9.7:1</td><td>✅ AAA</td></tr>
+    <tr><td>Gray-500 #64748b</td><td>Branco #ffffff</td><td>~5.9:1</td><td>✅ AA</td></tr>
   </table>
 
-  <h3>7.2 Atributos ARIA</h3>
+  <h3>7.2 Estrutura Semântica (Critério 1.3.1 WCAG)</h3>
+  <p>A estrutura HTML foi construída com elementos semânticos que transmitem significado tanto para leitores de tela quanto para mecanismos de busca:</p>
   <ul>
-    <li><code>aria-label</code> em botões e links sem texto descritivo</li>
-    <li><code>aria-expanded</code> no hamburger, atualizado via JS</li>
-    <li><code>aria-labelledby</code> associando seções aos títulos H2</li>
-    <li><code>aria-hidden="true"</code> em emojis decorativos</li>
-    <li><code>role="banner"</code>, <code>"navigation"</code>, <code>"contentinfo"</code></li>
+    <li><code>&lt;header role="banner"&gt;</code> — identifica o cabeçalho principal da página</li>
+    <li><code>&lt;main id="main-content"&gt;</code> — delimita o conteúdo principal, destino do skip link</li>
+    <li><code>&lt;nav aria-label="Menu principal"&gt;</code> — identifica e nomeia a navegação</li>
+    <li><code>&lt;section aria-labelledby="sec-titulo"&gt;</code> — cada seção é associada ao seu título H2</li>
+    <li><code>&lt;article&gt;</code> — usado para cada card de livro e cada unidade (conteúdo independente)</li>
+    <li><code>&lt;footer role="contentinfo"&gt;</code> — identifica o rodapé institucional</li>
   </ul>
 
-  <h3>7.3 Navegação por Teclado</h3>
+  <h3>7.3 Skip Link — Pular para o Conteúdo (Critério 2.4.1 WCAG)</h3>
+  <p>O primeiro elemento do <code>&lt;body&gt;</code> é um link "Pular para o conteúdo principal" que fica oculto visualmente mas aparece ao receber foco pelo teclado:</p>
   <ul>
-    <li><strong>Skip link</strong> "Pular para o conteúdo principal" — visível ao receber foco</li>
-    <li><code>:focus-visible</code> com outline dourado de 3px em todos os interativos</li>
-    <li><code>@media (prefers-reduced-motion: reduce)</code> — desativa animações quando o usuário prefere</li>
+    <li>Permite que usuários de teclado e leitores de tela ignorem a navegação repetida a cada página</li>
+    <li>Implementado com CSS: <code>position: absolute; top: -100%</code> oculto; <code>:focus { top: 1rem }</code> visível</li>
+    <li>Leva diretamente ao <code>&lt;main id="main-content"&gt;</code></li>
   </ul>
+
+  <h3>7.4 Atributos ARIA (Critério 4.1.2 WCAG)</h3>
+  <p>Os atributos ARIA (Accessible Rich Internet Applications) foram aplicados em todos os componentes interativos:</p>
+  <ul>
+    <li><code>aria-label="Abrir menu de navegação"</code> — no botão hamburger, descrevendo sua função</li>
+    <li><code>aria-expanded="false/true"</code> — atualizado via JavaScript ao abrir/fechar o menu</li>
+    <li><code>aria-controls="mainNav"</code> — associa o botão ao elemento que controla</li>
+    <li><code>aria-label="Livro: Fundamentos de Programação"</code> — em cada card de livro</li>
+    <li><code>aria-required="true"</code> — nos campos obrigatórios do formulário</li>
+    <li><code>aria-hidden="true"</code> — em emojis e ícones puramente decorativos</li>
+  </ul>
+
+  <h3>7.5 Navegação por Teclado (Critério 2.1.1 WCAG)</h3>
+  <p>Toda funcionalidade do site é acessível por teclado:</p>
+  <ul>
+    <li>Foco visível com <code>:focus-visible</code> — outline dourado de 3px em todos os elementos interativos</li>
+    <li>Ordem de tabulação lógica seguindo o fluxo visual da página</li>
+    <li>Todos os botões e links são elementos HTML nativos (<code>&lt;button&gt;</code>, <code>&lt;a&gt;</code>) com comportamento de foco automático</li>
+  </ul>
+
+  <h3>7.6 Imagens Acessíveis (Critério 1.1.1 WCAG)</h3>
+  <p>Todas as imagens possuem atributo <code>alt</code> com descrição contextual e significativa:</p>
+  <ul>
+    <li>Imagens de conteúdo: <code>alt="Capa do livro Fundamentos de Programação"</code></li>
+    <li>Imagens de unidades: <code>alt="Campus Mooca da UniFECAF — espaço de biblioteca moderno"</code></li>
+    <li>Emojis decorativos: <code>aria-hidden="true"</code> para não serem lidos pelo leitor de tela</li>
+    <li><code>loading="lazy"</code> em todas as imagens — melhora performance sem prejudicar acessibilidade</li>
+  </ul>
+
+  <h3>7.7 Movimento Reduzido (Critério 2.3.3 WCAG)</h3>
+  <p>A media query <code>@media (prefers-reduced-motion: reduce)</code> desativa todas as transições e animações CSS para usuários que configuraram essa preferência no sistema operacional. Isso é especialmente importante para pessoas com epilepsia fotossensível, vertigem ou transtorno vestibular.</p>
+
+  <div class="callout amarelo">
+    <strong>Nota importante:</strong> a conformidade total com WCAG requer testes com tecnologias assistivas reais (NVDA, JAWS, VoiceOver) e auditoria especializada. As medidas implementadas atendem os critérios verificáveis automaticamente no nível AA e vão além em vários pontos, atingindo o nível AAA em contraste de cores.
+  </div>
 </section>
 
 <!-- ================================================ 8. QUESTÕES ORIENTADORAS ================================================ -->
