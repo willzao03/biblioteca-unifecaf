@@ -33,12 +33,14 @@
       padding-bottom: 40px;
     }
     .capa__logo {
-      width: 90px; height: 90px;
-      background: linear-gradient(135deg,#1a2e4a,#1e6f8e);
-      border-radius: 18px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2.8rem;
-      box-shadow: 0 8px 24px rgba(26,46,74,.3);
+      width: 180px;
+      height: auto;
+      margin-bottom: 8px;
+    }
+    .capa__logo img {
+      width: 100%;
+      height: auto;
+      border-radius: 0;
     }
     .capa__inst   { font-size: 12pt; font-weight: 700; color: #1a2e4a; letter-spacing:.06em; text-transform:uppercase; margin-top: 8px; }
     .capa__curso  { font-size: 10.5pt; color: #475569; }
@@ -279,7 +281,9 @@
 
 <!-- ================================================ CAPA ================================================ -->
 <div class="capa">
-  <div class="capa__logo">📚</div>
+  <div class="capa__logo">
+    <img src="assets/imagens/logo-unifecaf.png" alt="Logo UniFECAF" />
+  </div>
   <p class="capa__inst">Centro Universitário UniFECAF</p>
   <p class="capa__curso">Disciplina: Design Web</p>
   <div class="capa__linha"></div>
