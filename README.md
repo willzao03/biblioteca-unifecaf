@@ -2,14 +2,16 @@
 
 Site desenvolvido como projeto da disciplina **Design Web** — UniFECAF 2026.
 
+**Aluno:** Willian Gabriel da Costa | **RA:** 102155 | **Curso:** Ciência da Computação
+
 ---
 
 ## 🔗 Links da Entrega
 
 | Item | Link |
 |------|------|
-| ✅ Site publicado | *(preencher após publicar)* |
-| ✅ Repositório | *(preencher após publicar)* |
+| ✅ Site publicado | https://willzao03.github.io/biblioteca-unifecaf/ |
+| ✅ Repositório | https://github.com/willzao03/biblioteca-unifecaf |
 
 ---
 
@@ -17,46 +19,13 @@ Site desenvolvido como projeto da disciplina **Design Web** — UniFECAF 2026.
 
 ```
 biblioteca-unifecaf/
-├── index.html          → Página principal (722 linhas)
-├── relatorio.html      → Relatório teórico (abrir no navegador → Ctrl+P → PDF)
+├── index.html
 ├── css/
-│   └── style.css       → Estilização completa (1352 linhas)
+│   └── style.css
 ├── assets/
-│   └── imagens/        → 14 imagens JPG + 14 SVG fallback
+│   └── imagens/
 └── README.md
 ```
-
----
-
-## 🚀 Publicar no GitHub Pages (passo a passo)
-
-### 1. Criar o repositório no GitHub
-1. Acesse **https://github.com/new**
-2. Nome do repositório: `biblioteca-unifecaf`
-3. Deixe **Public** marcado
-4. **NÃO** marque "Add a README file"
-5. Clique em **Create repository**
-
-### 2. Enviar o código (rode no PowerShell nesta pasta)
-
-```powershell
-git remote add origin https://github.com/willzao03/biblioteca-unifecaf.git
-git push -u origin main
-```
-
-> Se pedir senha, use um **Personal Access Token**:
-> → https://github.com/settings/tokens/new → marque `repo` → Generate → cole no lugar da senha
-
-### 3. Ativar o GitHub Pages
-1. No repositório, clique em **Settings**
-2. No menu lateral, clique em **Pages**
-3. Em *Source*, selecione: **Deploy from a branch**
-4. Branch: **main** | Pasta: **/ (root)**
-5. Clique em **Save**
-6. Aguarde ~2 minutos e acesse:
-   ```
-   https://willzao03.github.io/biblioteca-unifecaf/
-   ```
 
 ---
 
@@ -113,14 +82,4 @@ git push -u origin main
 
 ---
 
-## 📄 Gerar o PDF do Relatório
-
-1. Abra o arquivo `relatorio.html` no navegador
-2. Pressione **Ctrl+P**
-3. Selecione **Salvar como PDF**
-4. Em *Mais configurações*, marque **Gráficos de fundo**
-5. Clique em **Salvar**
-
----
-
-*© 2026 — Biblioteca Digital UniFECAF | Disciplina: Design Web*
+*© 2026 — Biblioteca Digital UniFECAF | Disciplina: Design Web | Professora: Thais Lima*
